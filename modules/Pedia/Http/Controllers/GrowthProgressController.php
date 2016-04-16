@@ -34,10 +34,10 @@ class GrowthProgressController extends Controller {
         $headCircumference = $growthProgress->getHeadCircumference();
         $chestCircumference = $growthProgress->getChestCircumference();
 
-        $childLengthData = $this->_formatGraphData('Child Length', $processPatientData, $childLength);
-        $childWeightData = $this->_formatGraphData('Child Weight', $processPatientData, $childWeight);
-        $headCircumferenceData = $this->_formatGraphData('Head Circumference', $processPatientData, $headCircumference);
-        $chestCircumferenceData = $this->_formatGraphData('Chest Circumference', $processPatientData, $chestCircumference);
+        $childLengthData = $this->_formatGraphData('Child Length', $processPatientData['height'], $childLength);
+        $childWeightData = $this->_formatGraphData('Child Weight', $processPatientData['weight'], $childWeight);
+        $headCircumferenceData = $this->_formatGraphData('Head Circumference', $processPatientData['head'], $headCircumference);
+        $chestCircumferenceData = $this->_formatGraphData('Chest Circumference', $processPatientData['chest'], $chestCircumference);
 
         return view('pedia::growth.browse', array(
             'childWeight' => $childWeightData,
