@@ -14,6 +14,7 @@ class Pedia extends Model {
     	return db::table('child_weights')
     		->where('gender', $gender)
     		->where('number_of_weeks', '<=', 120)
+            ->orderBy('number_of_weeks', 'ASC')
     		->get();
     }
 
@@ -21,6 +22,7 @@ class Pedia extends Model {
     	return db::table('child_lengths')
     		->where('gender', $gender)
     		->where('number_of_weeks', '<=', 120)
+            ->orderBy('number_of_weeks', 'ASC')
     		->get();
     }
 
@@ -28,6 +30,7 @@ class Pedia extends Model {
     	return db::table('head_circumferences')
     		->where('gender', $gender)
     		->where('number_of_weeks', '<=', 120)
+            ->orderBy('number_of_weeks', 'ASC')
     		->get();
     }
 
@@ -35,7 +38,16 @@ class Pedia extends Model {
     	return db::table('head_circumferences')
     		->where('gender', $gender)
     		->where('number_of_weeks', '<=', 120)
+            ->orderBy('number_of_weeks', 'ASC')
     		->get();
+    }
+
+    public function getPatientGender($patient_id)
+    {
+        $patient = DB::table('patients')
+            ->where('id', $patient_id)->first();
+
+        return ($patient->gender == 'M') ? 1 : 0;
     }
 
 }

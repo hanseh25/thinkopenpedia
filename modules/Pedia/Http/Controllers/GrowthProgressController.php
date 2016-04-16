@@ -4,18 +4,21 @@
 use Illuminate\Routing\Controller;
 
 use Modules\Pedia\Entities\GrowthProgress; //model
+use Modules\Pedia\Entities\Pedia; //model
 use Shine\Libraries\IdGenerator;
 use Shine\Libraries\FacilityHelper;
 use Shine\Libraries\UserHelper;
 use Illuminate\Support\Facades\Request;
 
 use View, Response, Input, Datetime, Redirect;
+use DB;
 
 class GrowthProgressController extends Controller {
 
     public function read($growth_id)
     {
         $growthProgress = GrowthProgress::find($growth_id);
+
         // dd($growthProgress->getRead($growth_id));
 
         return view('pedia::growth.read', array('result' => $growthProgress));
@@ -23,16 +26,20 @@ class GrowthProgressController extends Controller {
 
     public function browse($patient_id)
     {
+        $pedia = new Pedia;
+
+        $gender = $pedia->getPatientGender($patient_id);
+
         $growthProgress = new GrowthProgress;
 
         $patientData = $growthProgress->getPatientDataBy($patient_id);
 
         $processPatientData = $this->_formatPatientData($patientData);
 
-        $childLength = $growthProgress->getChildLengthStandard();
-        $childWeight = $growthProgress->getChildWeightStandard();
-        $headCircumference = $growthProgress->getHeadCircumference();
-        $chestCircumference = $growthProgress->getChestCircumference();
+        $childLength = $growthProgress->getChildLengthStandard($gender);
+        $childWeight = $growthProgress->getChildWeightStandard($gender);
+        $headCircumference = $growthProgress->getHeadCircumference($gender);
+        $chestCircumference = $growthProgress->getChestCircumference($gender);
 
         $childLengthData = $this->_formatGraphData('Child Length', $processPatientData['height'], $childLength);
         $childWeightData = $this->_formatGraphData('Child Weight', $processPatientData['weight'], $childWeight);
@@ -204,12 +211,12 @@ class GrowthProgressController extends Controller {
             $growthProgress->save();
 
             if ($growthProgress) {
-                return Redirect::to('pedia/growth/' . $patient_id)->with('message', 'Successfully added.');
+                return Redirect::to('pedia/growth/' . $request['patient_id'])->with('message', 'Successfully added.');
             }
             
         }
 
-        return view('pedia::growth.add', array( 'patient_id' => $patient_id));
+        return view('pedia::growth.add', array( 'patient_id' => $request['patient_id']));
     }
 
     public function edit($growth_id)

@@ -68,7 +68,7 @@
                         <div class="box-header with-border">
                             <i class="fa fa-bar-chart-o"></i>
 
-                            <h3 class="box-title">Head Circumference</h3>
+                            <h3 class="box-title">Head Circumference (cm)</h3>
 
                         </div>
                         <div class="box-body row">
@@ -86,7 +86,7 @@
                         <div class="box-header with-border">
                             <i class="fa fa-bar-chart-o"></i>
 
-                            <h3 class="box-title">Child Weight</h3>
+                            <h3 class="box-title">Child Weight (kg)</h3>
 
                             <div class="box-tools pull-right">
                             </div>
@@ -108,7 +108,7 @@
                         <div class="box-header with-border">
                             <i class="fa fa-bar-chart-o"></i>
 
-                            <h3 class="box-title">Child Length</h3>
+                            <h3 class="box-title">Child Length (cm)</h3>
 
                             <div class="box-tools pull-right">
                             </div>
@@ -127,7 +127,7 @@
                         <div class="box-header with-border">
                             <i class="fa fa-bar-chart-o"></i>
 
-                            <h3 class="box-title">Chest Circumference</h3>
+                            <h3 class="box-title">Chest Circumference (cm)</h3>
 
                             <div class="box-tools pull-right">
                             </div>
