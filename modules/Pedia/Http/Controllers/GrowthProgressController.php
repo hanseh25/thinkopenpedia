@@ -43,7 +43,9 @@ class GrowthProgressController extends Controller {
             'childWeight' => $childWeightData,
             'childLength' => $childLengthData,
             'headCircumference' => $headCircumferenceData,
-            'chestCircumference' => $chestCircumferenceData
+            'chestCircumference' => $chestCircumferenceData,
+            'growthProgress' => $patientData,
+            'patient_id' => $patient_id
         ));
     }
 

@@ -17,6 +17,7 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
     Route::get('/growth/edit/{id}', 'GrowthProgressController@edit');
     Route::post('/growth/add/{patient_id}', 'GrowthProgressController@add');
     Route::post('/growth/edit/{id}', 'GrowthProgressController@edit');
+    Route::get('/growth/delete/{id}', 'GrowthProgressController@delete');
 
 
     Route::group(['prefix' => 'healthcareservices', 'middleware' => 'auth.access:healthcareservices'], function()

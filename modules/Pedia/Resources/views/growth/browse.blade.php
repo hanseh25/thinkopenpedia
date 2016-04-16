@@ -8,18 +8,68 @@
 <!-- Main content -->
 
         <section class="content">
-
+            <div class="row">
+                  <div class="col-md-12 col-xs-12">
+                    <div class="box">
+                      <div class="box-body table-responsive no-padding overflowx-hidden">
+                          @if(count($growthProgress))
+                              <table class="table table table-hover datatable" role="grid">
+                                  <thead>
+                                      <tr class="row">
+                                          <th>Age (weeks)</th>
+                                          <th>Weight(kg)</th>
+                                          <th>Height(cm)</th>
+                                          <th>Head(cm)</th>
+                                          <th>Chest(cm)</th>
+                                          <th>Notes</th>
+                                          <th>Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      @foreach($growthProgress as $items)
+                                          <tr class="row">
+                                              <td>{!! $items->age !!}</td>
+                                              
+                                              <td>{!! $items->child_weight !!}</td>
+                                              <td>{!! $items->child_height !!}</td>
+                                              <td>{!! $items->head !!}</td>
+                                              <td>{!! $items->chest !!}</td>
+                                              <td>{!! $items->notes !!}</td>
+                                              <td>
+                                                  <a href="read/{!! $items->id !!}" class="btn btn-info"> 
+                                                      <i class="fa fa-fw fa-eye"></i>
+                                                      Show
+                                                  </a>
+                                                  <a href="edit/{!! $items->id !!}" class="btn bg-olive"> 
+                                                      <i class="fa fa-fw fa-edit"></i>
+                                                      edit
+                                                  </a>
+                                                  <a href="delete/{!! $items->id !!}" class="btn btn-danger"> 
+                                                      <i class="fa fa-fw fa-trash-o"></i>
+                                                      Delete
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                      @endforeach
+                                  </tbody>
+                              </table>
+                          @else
+                              <h5>There was no Growth Progress found</h5>
+                          @endif
+                      </div>
+                    </div>
+                  </div>
+            </div>
             <div class="row">
                 <div class="col-xs-6">
                 <!-- interactive chart -->
                     <div class="box box-primary">
+
                         <div class="box-header with-border">
                             <i class="fa fa-bar-chart-o"></i>
 
                             <h3 class="box-title">Head Circumference</h3>
 
-                            <div class="box-tools pull-right">
-                            </div>
                         </div>
                         <div class="box-body row">
                             <div id="headCircumferenceData" style="height: 300px; padding: 0px; position: relative;" class="col-xs-10 col-xs-offset-1"></div>
