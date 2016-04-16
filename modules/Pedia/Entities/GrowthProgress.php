@@ -1,6 +1,7 @@
 <?php namespace Modules\Pedia\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 class GrowthProgress extends Model {

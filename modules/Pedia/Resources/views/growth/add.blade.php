@@ -76,7 +76,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-4 col-xs-4">
-                                    <label>YOUR NOTES (PRIVATE) :</label>
+                                    <label>NOTES :</label>
                                 </div>
                                 <div class="col-md-8 col-xs-8 input-group">
                                     {!! Form::textarea('notes', '', array('class' => 'form-control')) !!}

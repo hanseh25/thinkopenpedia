@@ -1,20 +1,23 @@
 <?php namespace Modules\Pedia\Http\Controllers;
 
-use Pingpong\Modules\Routing\Controller;
+
+use Illuminate\Routing\Controller;
+
 use Modules\Pedia\Entities\GrowthProgress; //model
 use Shine\Libraries\IdGenerator;
 use Shine\Libraries\FacilityHelper;
 use Shine\Libraries\UserHelper;
 use Illuminate\Support\Facades\Request;
 
-use View, Response, Input, Datetime;
+use View, Response, Input, Datetime, Redirect;
 
 class GrowthProgressController extends Controller {
 
     public function read($growth_id)
     {
-        $growthProgress = GrowthProgress::where('id', '=', $growth_id)->get();
-        
+        $growthProgress = GrowthProgress::find($growth_id);
+        // dd($growthProgress->getRead($growth_id));
+
         return view('pedia::growth.read', array('result' => $growthProgress));
     }
 
@@ -187,11 +190,21 @@ class GrowthProgressController extends Controller {
 
         if(count($request)) {
 
-            DB::table('growth_progress')
-            ->where('patient_id', $patient_id)
-            ->insert($request);
+            $growthProgress = new GrowthProgress;
+            $growthProgress->patient_id = $request['patient_id'];
+            $growthProgress->age = $request['age'];
+            $growthProgress->child_weight = $request['child_weight'];
+            $growthProgress->child_height = $request['child_height'];
+            $growthProgress->head = $request['head'];
+            $growthProgress->chest = $request['chest'];
+            $growthProgress->notes = $request['notes'];
 
-            return view('pedia::growth.browse' . $patient_id, array( 'patient_id' => $patient_id));            
+            $growthProgress->save();
+
+            if ($growthProgress) {
+                return Redirect::to('pedia/growth/' . $patient_id)->with('message', 'Successful added.');
+            }
+            
         }
 
         return view('pedia::growth.add', array( 'patient_id' => $patient_id));
@@ -203,19 +216,29 @@ class GrowthProgressController extends Controller {
 
         if(count($request)) {
 
-            $growth = DB::table('growth_progress')
-                    ->where('id', $growth_id)
-                    ->update($request);
+            $growthProgress = GrowthProgress::find($growth_id);
+            $growthProgress->age = $request['age'];
+            $growthProgress->child_weight = $request['child_weight'];
+            $growthProgress->child_height = $request['child_height'];
+            $growthProgress->head = $request['head'];
+            $growthProgress->chest = $request['chest'];
+            $growthProgress->notes = $request['notes'];
 
-            return view('pedia::growth.edit' . $growth_id, array( 'growth' => $growth));   
+            $growthProgress->save();
+
+            if ($growthProgress) {
+                return Redirect::to('pedia/growth/' . $request['patient_id'])->with('message', 'Successful updated.');
+            }
+            
         }
-
-        return view('pedia::growth.add', array());
+        $result = GrowthProgress::find($growth_id);
+        return view('pedia::growth.edit', array('result' => $result));
     }
 
     public function delete($growth_id)
     {
         $growthProgress = new GrowthProgress();
+
         $result = $growthProgress->delete($growth_id);
 
         return redirect()->back()->withInput()->withFlashSuccess($result->message);
