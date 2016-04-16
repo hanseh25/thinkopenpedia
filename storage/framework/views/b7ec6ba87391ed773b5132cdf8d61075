@@ -1,0 +1,41 @@
+<div class="box box-primary"><!--Consultations-->
+    <div class="box-header">
+        <i class="fa fa-stethoscope"></i><h3 class="box-title text-shine-blue">Visits</h3>
+    </div><!-- /.box-header -->
+
+    <div class="box-body no-padding">
+        <?php if(!empty($visit_list)): ?>
+            <table class="table table-condensed">
+                <tbody>
+                    <tr>
+                        <th>Visit Date</th>
+                        <th>Patient</th>
+                        <th>Seen by</th>
+                        <th>Healthcare Service</th>
+                    </tr>
+                        <?php foreach($visit_list as $key => $value): ?>
+                            <tr class="row-clicker" onclick="location.href='<?php echo e(url('healthcareservices/edit/'.$value->patient_id.'/'.$value->healthcareservice_id)); ?>'">
+                                <td><?php echo e(date('M. d, Y', strtotime($value->encounter_datetime))); ?></td>
+                                <td><?php echo e($value->last_name); ?>, <?php echo e($value->first_name); ?></td>
+                                <td>Dr. <?php echo e($value->seen_by->first_name); ?> <?php echo e($value->seen_by->last_name); ?></td>
+                                <td><?php echo e($value->healthcareservicetype_id); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    
+                </tbody>
+            </table>
+            <?php if(!empty($visit_list)): ?>
+            <div class="box-footer text-center">
+                <a href="<?php echo e(url('/records#visit_list')); ?>" class="uppercase">View All Visits</a>
+            </div><!--/.box-footer-->
+            <?php endif; ?>
+        <?php else: ?> 
+            <div class="box-footer text-center">
+                No records found
+            </div><!--/.box-footer-->
+        <?php endif; ?>
+            
+    </div><!-- /.box-body -->
+
+</div><!--/. end consultations-->
+

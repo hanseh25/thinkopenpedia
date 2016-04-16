@@ -1,0 +1,15 @@
+{
+	"name": "98labs-modules/pedia",
+	"description": "",
+	"authors": [
+		{
+			"name": "98Labs",
+			"email": ""
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Modules\\Pedia\\": ""
+		}
+	}
+}
