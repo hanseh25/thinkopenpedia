@@ -202,7 +202,7 @@ class GrowthProgressController extends Controller {
             $growthProgress->save();
 
             if ($growthProgress) {
-                return Redirect::to('pedia/growth/' . $patient_id)->with('message', 'Successful added.');
+                return Redirect::to('pedia/growth/' . $patient_id)->with('message', 'Successfully added.');
             }
             
         }
@@ -227,7 +227,7 @@ class GrowthProgressController extends Controller {
             $growthProgress->save();
 
             if ($growthProgress) {
-                return Redirect::to('pedia/growth/' . $request['patient_id'])->with('message', 'Successful updated.');
+                return Redirect::to('pedia/growth/' . $request['patient_id'])->with('message', 'Successfully updated.');
             }
             
         }
@@ -237,11 +237,11 @@ class GrowthProgressController extends Controller {
 
     public function delete($growth_id)
     {
-        $growthProgress = new GrowthProgress();
+        $growthProgress = GrowthProgress::find($growth_id);
+        $patient_id = $growthProgress->patient_id;
+        $result = $growthProgress->delete();
 
-        $result = $growthProgress->delete($growth_id);
-
-        return redirect()->back()->withInput()->withFlashSuccess($result->message);
+        return Redirect::to('pedia/growth/' . $patient_id)->with('message', 'Successfully delete.');
 
     }
 }
