@@ -1,12 +1,11 @@
 
-{!! Form::open(array('route' => 'healthcare.insert')) !!}
+{!! Form::open(array('route' => 'pedia.healthcare.insert')) !!}
 
 {!! Form::hidden('patient_id', $patient->patient_id) !!}
 {!! Form::hidden('hservices_id', $healthcareserviceid) !!}
 {!! Form::hidden('follow_healthcareserviceid', $follow_healthcareserviceid) !!}
 
 <?php
-
 if(empty($disposition_record)) { $read = NULL; }
 else { $read = 'disabled'; }
 

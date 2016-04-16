@@ -230,7 +230,7 @@ class HealthcareservicesController extends Controller {
             $insertQuery->save();
             $query->save();
 
-            return Redirect::route('healthcare.edit', ['action' => 'edit', 'patiend_id' => $this->patient_id, 'hservice_id' =>  $this->healthcareserviceid]);
+            return Redirect::route('pedia.healthcare.edit', ['action' => 'edit', 'patiend_id' => $this->patient_id, 'hservice_id' =>  $this->healthcareserviceid]);
         } else {
             echo "does not exists";
         }
@@ -335,7 +335,7 @@ class HealthcareservicesController extends Controller {
 
                     $data['gender'] = $patients->gender;
 
-                    return view('healthcareservices::add')->with($data);
+                    return view('pedia.healthcareservices::add')->with($data);
                 }
             } else {
                 //get some values from the plugin config file
@@ -401,7 +401,7 @@ class HealthcareservicesController extends Controller {
                         $data['plugindata'] = $qModel::where('healthcareservice_id', $hservice_id)->first();
 
                     }
-                    return view('healthcareservices::add')->with($data);
+                    return view('pedia.healthcareservices::add')->with($data);
                 }
             }
         } catch(\Exception $e){

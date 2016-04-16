@@ -148,7 +148,7 @@
                      @endforeach
                   @else
                      <div class="tab-pane active" id="{{$default_tabs}}">
-                        @include('healthcareservices::forms.' . $default_tabs)
+                        @include('pedia::healthservices.forms.' . $default_tabs)
                       </div><!-- /.tab-pane -->
 
                   @endif

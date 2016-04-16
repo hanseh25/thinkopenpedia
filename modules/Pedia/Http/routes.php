@@ -25,11 +25,11 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
         Route::get('/', ['as' => 'healthcare.index', 'uses' => 'HealthcareservicesController@index']);
         Route::get('/{action}/{patiend_id}', ['as' => 'healthcare.add', 'uses' => 'HealthcareservicesController@index']);
         /** Follow up  */
-        Route::get('/{action}/{patiend_id}/{hservice_id}', ['as' => 'healthcare.add', 'uses' => 'HealthcareservicesController@index']);
-        Route::get('/{action}/{patiend_id}/{hservice_id}', ['as' => 'healthcare.edit', 'uses' => 'HealthcareservicesController@index']);
+        Route::get('/{action}/{patiend_id}/{hservice_id}', ['as' => 'pedia.healthcare.add', 'uses' => 'HealthcareservicesController@index']);
+        Route::get('/{action}/{patiend_id}/{hservice_id}', ['as' => 'pedia.healthcare.edit', 'uses' => 'HealthcareservicesController@index']);
 
-        Route::post('/insert', ['as' => 'healthcare.insert', 'uses' => 'HealthcareservicesController@insert']);
-        Route::get('/view', ['as' => 'healthcare.view', 'uses' => 'HealthcareservicesController@view']);
+        Route::post('/insert', ['as' => 'pedia.healthcare.insert', 'uses' => 'HealthcareservicesController@insert']);
+        Route::get('/view', ['as' => 'pedia.healthcare.view', 'uses' => 'HealthcareservicesController@view']);
 
         Route::post('/vitals/add', ['as' => 'vitals.insert', 'uses' => 'VitalsController@add']);
         Route::post('/vitals/edit', ['as' => 'vitals.edit', 'uses' => 'VitalsController@edit']);
