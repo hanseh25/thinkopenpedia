@@ -102,6 +102,8 @@ class PatientsController extends Controller {
          * @var Patients
          */
 
+        // dd(Input::get());
+
         $patient = new Patients;
         $patient->patient_id = IdGenerator::generateId();
         $id = $patient->patient_id;

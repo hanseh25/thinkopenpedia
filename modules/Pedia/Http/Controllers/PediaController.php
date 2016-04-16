@@ -1,4 +1,4 @@
-<?php namespace Modules\Calendar\Http\Controllers;
+<?php namespace Modules\Pedia\Http\Controllers;
 
 use Pingpong\Modules\Routing\Controller;
 use Modules\Calendar\Entities\Calendar; //model
@@ -24,7 +24,7 @@ class PediaController extends Controller {
         $data['user'] = $this->user;
         $data['facilityInfo'] = $this->facility;
 
-        return view('calendar::index')->with($data);
+        return view('pedia::index')->with($data);
     }
 
 }
