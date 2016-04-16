@@ -31,7 +31,7 @@
                               <li><a href="{{ url('healthcareservices/add/'.$value->patient_id.'/'.$value->healthcareservice_id) }}" title="Add Follow-up">Add Follow-up </a></li>
                               @endif
                               @if(getModuleStatus('referrals') == 1)
-                              <li><a href="{{ url('referrals/add', [$value->healthcareservice_id]) }}" title="Refer Patient">Refer Patient </a></li>
+                              <li><a href="{{ route('pedia.patients.view', [$value->healthcareservice_id]) }}" title="Refer Patient">Refer Patient </a></li>
                               @endif
                               @if(getModuleStatus('reminders') == 1)
                               <li><a href="{{ url('reminders/add', [$value->patient_id]) }}" title="Refer Patient">Create Appointment </a></li>
@@ -39,11 +39,11 @@
                             </ul>
                         </div>
                         @if(!empty($value->healthcare_disposition))
-                        <a href="{{ url('healthcareservices/edit/'.$value->patient_id.'/'.$value->healthcareservice_id) }}" type="button" class="btn btn-success btn-flat" title="View Visits"><i class="fa fa-eye"></i> View </a>
+                        <a href="{{ url('pedia/healthcareservices/edit/'.$value->patient_id.'/'.$value->healthcareservice_id) }}" type="button" class="btn btn-success btn-flat" title="View Visits"><i class="fa fa-eye"></i> View </a>
                         @else
-                        <a href="{{ url('healthcareservices/edit/'.$value->patient_id.'/'.$value->healthcareservice_id) }}" type="button" class="btn btn-success btn-flat" title="Edit Visits"><i class="fa fa-pencil"></i> Edit </a>
+                        <a href="{{ url('pedia/healthcareservices/edit/'.$value->patient_id.'/'.$value->healthcareservice_id) }}" type="button" class="btn btn-success btn-flat" title="Edit Visits"><i class="fa fa-pencil"></i> Edit </a>
                         @endif
-                        <a href="{{ url('healthcareservices/delete', [$value->healthcareservice_id]) }}" type="button" class="btn btn-danger btn-flat" title="Delete Visits"><i class="fa fa-trash-o"></i> Delete</a>
+                        <a href="{{ url('pedia/healthcareservices/delete', [$value->healthcareservice_id]) }}" type="button" class="btn btn-danger btn-flat" title="Delete Visits"><i class="fa fa-trash-o"></i> Delete</a>
                       </div>
                     </td>
                 </tr>

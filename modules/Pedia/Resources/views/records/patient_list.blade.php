@@ -56,7 +56,7 @@
                                       <li><a href="#" data-toggle="modal" data-target="#deathModal" class="red">Declare Dead</a></li>
                                     </ul>
                                 </div>
-                                <a href="{{ url('patients/view', [$patient->patient_id]) }}" type="button" class="btn btn-success btn-flat" title="Edit Patient" {{ $status }}><i class="fa fa-pencil"></i> Edit</a>
+                                <a href="{{ url('pedia/patients/view', [$patient->patient_id]) }}" type="button" class="btn btn-success btn-flat" title="Edit Patient" {{ $status }}><i class="fa fa-pencil"></i> Edit</a>
                                 <a href="{{ route('patients.delete', [$patient->patient_id]) }}" type="button" class="btn btn-danger btn-flat" title="Delete Role"><i class="fa fa-trash-o"></i> Delete</a>
                             </div>
                         </td>
