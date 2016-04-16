@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalendar extends Migration {
+class CreateVaccine extends Migration {
 
     /**
      * Run the migrations.
@@ -12,12 +12,44 @@ class CreateCalendar extends Migration {
      */
     public function up()
     {
-        Schema::create('vaccine', function (Blueprint $table) {
+        Schema::create('vaccines', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('patient_id');
             $table->string('vaccine');
             $table->string('site');
             $table->string('date');
+            $table->timestamps();
+        });
+
+        Schema::create('generics', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->longText('description');
+            $table->timestamps();
+        });
+
+        Schema::create('brands', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('generics_id');
+            $table->string('name');
+            $table->longText('description');
+            $table->timestamps();
+        });
+
+        Schema::create('prescriptions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('patient_id');
+            $table->integer('vaccine_id')->default(0);
+            $table->integer('generics_id');
+            $table->integer('generic_brands_id');
+            $table->string('frequency');
+            $table->string('amount_dose');
+            $table->string('date');
+            $table->string('notes');
+            $table->string('next_checkup');
+            $table->string('strength');
+            $table->string('preparation');
+            $table->string('others');
             $table->timestamps();
         });
     }
@@ -29,7 +61,12 @@ class CreateCalendar extends Migration {
      */
     public function down()
     {
-        Schema::drop('calendar');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('vaccines');
+        Schema::dropIfExists('generics');
+        Schema::dropIfExists('brands');
+        Schema::dropIfExists('prescriptions');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 
 }
