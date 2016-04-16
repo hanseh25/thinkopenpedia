@@ -123,7 +123,15 @@
             <div class="">
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <?php //dd($tabs); ?>
+                    <?php 
+                      $tabs  = [
+                        'addservice' => 'Basic Information',
+                        'growthprogress' => 'Growth Progress',
+                        'vaccine' => 'Vaccine'
+                      ];
+
+                      $tabs_child = ['addservice', 'growthprogress', 'vaccine'];
+                    ?>
                   @if (isset($tabs_child))
                     @foreach ($tabs_child as $key => $val)
                        <li class="{{($default_tabs == $val) ? 'active' : ''}}"><a href="#{{$val}}" data-toggle="tab">{{$tabs[$val]}}</a></li>
@@ -151,7 +159,7 @@
                      @endforeach
                   @else
                      <div class="tab-pane active" id="{{$default_tabs}}">
-                        @include('pedia::healthservices.forms.' . $default_tabs)
+                        @include('pedia::forms.' . $default_tabs)
                       </div><!-- /.tab-pane -->
 
                   @endif

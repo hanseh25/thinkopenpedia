@@ -401,7 +401,7 @@ class HealthcareservicesController extends Controller {
                         $data['plugindata'] = $qModel::where('healthcareservice_id', $hservice_id)->first();
 
                     }
-                    return view('pedia::healthcareservice_add')->with($data);
+                    return view('pedia::healthservice_add')->with($data);
                 }
             }
         } catch(\Exception $e){
