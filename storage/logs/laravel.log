@@ -1,0 +1,22 @@
+[2016-04-16 15:13:54] local.ERROR: exception 'InvalidArgumentException' with message 'Database [] not configured.' in /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php:238
+Stack trace:
+#0 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(157): Illuminate\Database\DatabaseManager->getConfig(NULL)
+#1 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(67): Illuminate\Database\DatabaseManager->makeConnection(NULL)
+#2 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(296): Illuminate\Database\DatabaseManager->connection()
+#3 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(216): Illuminate\Database\DatabaseManager->__call('statement', Array)
+#4 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(216): Illuminate\Database\DatabaseManager->statement('CREATE TABLE IF...')
+#5 /Users/hanseh/Sites/98labs/modules/Calendar/Providers/CalendarServiceProvider.php(47): Illuminate\Support\Facades\Facade::__callStatic('statement', Array)
+#6 /Users/hanseh/Sites/98labs/modules/Calendar/Providers/CalendarServiceProvider.php(47): Illuminate\Support\Facades\DB::statement('CREATE TABLE IF...')
+#7 [internal function]: Modules\Calendar\Providers\CalendarServiceProvider->boot()
+#8 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Container/Container.php(507): call_user_func_array(Array, Array)
+#9 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(734): Illuminate\Container\Container->call(Array)
+#10 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(717): Illuminate\Foundation\Application->bootProvider(Object(Modules\Calendar\Providers\CalendarServiceProvider))
+#11 [internal function]: Illuminate\Foundation\Application->Illuminate\Foundation\{closure}(Object(Modules\Calendar\Providers\CalendarServiceProvider), 26)
+#12 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(718): array_walk(Array, Object(Closure))
+#13 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/BootProviders.php(17): Illuminate\Foundation\Application->boot()
+#14 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(203): Illuminate\Foundation\Bootstrap\BootProviders->bootstrap(Object(Illuminate\Foundation\Application))
+#15 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(222): Illuminate\Foundation\Application->bootstrapWith(Array)
+#16 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(117): Illuminate\Foundation\Http\Kernel->bootstrap()
+#17 /Users/hanseh/Sites/98labs/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(87): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#18 /Users/hanseh/Sites/98labs/index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#19 {main}  
