@@ -5,7 +5,7 @@
 	<section class="content-header">
 		<h1>
 			<i class="fa fa-odnoklassniki"></i>
-		 	Pedia PO
+		 	Pedia
 		</h1>
 
 		<!--Breadcrumbs-->
