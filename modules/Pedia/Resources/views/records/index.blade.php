@@ -1,10 +1,21 @@
-@extends('pedia::layouts.master')
+@extends('layout.master')
 
-@section('heads')
-
+@section('page-header')
+  <section class="content-header">
+    <!-- edit by RJBS -->
+    <h1>
+      <i class="ion ion-person-stalker"></i>
+      Records
+    </h1>
+    <!-- end edit RJBS -->
+    <ol class="breadcrumb">
+      <li><a href="{{ url('/') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Records</li>
+    </ol>
+  </section>
 @stop
 
-@section('pedia-content')
+@section('content')
 <div class="row">
     <div class="col-xs-12">
         @if (Session::has('flash_message'))
@@ -18,10 +29,10 @@
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="patient_list">
-                  @include('pedia::records.patient_list')
+                  @include('records::pages.patient_list')
                 </div><!-- /.tab-pane -->
                 <div class="tab-pane" id="visit_list">
-                  @include('pedia::records.healthcare_list')
+                  @include('records::pages.healthcare_list')
                 </div><!-- /.tab-pane -->
 
             </div>
