@@ -24,7 +24,7 @@ class CreateVaccine extends Migration {
         Schema::create('generics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
 
@@ -32,7 +32,7 @@ class CreateVaccine extends Migration {
             $table->increments('id');
             $table->integer('generics_id');
             $table->string('name');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
 
@@ -49,9 +49,23 @@ class CreateVaccine extends Migration {
             $table->string('next_checkup');
             $table->string('strength');
             $table->string('preparation');
-            $table->string('others');
+            $table->string('others')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('growth_progress', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('patient_id');
+            $table->integer('age');
+            $table->integer('child_weight');
+            $table->integer('child_height');
+            $table->integer('head');
+            $table->integer('chest');
+            $table->longText('notes')->nullable();
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -66,6 +80,7 @@ class CreateVaccine extends Migration {
         Schema::dropIfExists('generics');
         Schema::dropIfExists('brands');
         Schema::dropIfExists('prescriptions');
+        Schema::dropIfExists('growth_progresses');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 

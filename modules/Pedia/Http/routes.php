@@ -12,4 +12,8 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
 
     Route::get('/growth', 'GrowthProgressController@browse');
     Route::get('/growth/read/{id}', 'GrowthProgressController@read');
+    Route::get('/growth/add/{id}', 'GrowthProgressController@addEdit');
+    Route::get('/growth/edit/{id}', 'GrowthProgressController@addEdit');
+    Route::post('/growth/add/{id}', 'GrowthProgressController@addEdit');
+    Route::post('/growth/edit/{id}', 'GrowthProgressController@addEdit');
 });
