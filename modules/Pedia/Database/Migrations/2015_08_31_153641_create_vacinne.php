@@ -53,7 +53,7 @@ class CreateVaccine extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('growth_progress', function(Blueprint $table)
+        Schema::create('growth_progresses', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('patient_id');

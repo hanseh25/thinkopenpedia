@@ -10,10 +10,10 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
     Route::post('/edit', 'PediaController@moved');
     Route::post('/delete', 'PediaController@delete');
 
-    Route::get('/growth', 'GrowthProgressController@browse');
+    Route::get('/growth/{patient_id}', 'GrowthProgressController@browse');
     Route::get('/growth/read/{id}', 'GrowthProgressController@read');
-    Route::get('/growth/add/{id}', 'GrowthProgressController@addEdit');
-    Route::get('/growth/edit/{id}', 'GrowthProgressController@addEdit');
-    Route::post('/growth/add/{id}', 'GrowthProgressController@addEdit');
-    Route::post('/growth/edit/{id}', 'GrowthProgressController@addEdit');
+    Route::get('/growth/add/{patient_id}', 'GrowthProgressController@add');
+    Route::get('/growth/edit/{id}', 'GrowthProgressController@edit');
+    Route::post('/growth/add/{patient_id}', 'GrowthProgressController@add');
+    Route::post('/growth/edit/{id}', 'GrowthProgressController@edit');
 });

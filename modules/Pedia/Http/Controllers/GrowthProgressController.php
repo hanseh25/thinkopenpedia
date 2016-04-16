@@ -5,6 +5,7 @@ use Modules\Calendar\Entities\Calendar; //model
 use Shine\Libraries\IdGenerator;
 use Shine\Libraries\FacilityHelper;
 use Shine\Libraries\UserHelper;
+use Illuminate\Support\Facades\Request;
 
 use View, Response, Input, Datetime;
 
@@ -12,11 +13,9 @@ class GrowthProgressController extends Controller {
 
     public function read($growth_id)
     {
-        $growthProgress = GrowthProgress::;
+        $growthProgress = GrowthProgress::where('id', '=', $growth_id)->get();
         
-        $growth = $growthProgress->read($patient_id);
-
-        return view('pedia::growth.read', array('result' => $growth->data));
+        return view('pedia::growth.read', array('result' => $growthProgress));
     }
 
     public function browse($patient_id)
@@ -37,7 +36,7 @@ class GrowthProgressController extends Controller {
             ->where('patient_id', $patient_id)
             ->insert($request);
 
-            return view('pedia::growth.browse', array( 'patient_id' => $patient_id);            
+            return view('pedia::growth.browse' . $patient_id, array( 'patient_id' => $patient_id));            
         }
 
         return view('pedia::growth.add', array( 'patient_id' => $patient_id));
@@ -53,7 +52,7 @@ class GrowthProgressController extends Controller {
                     ->where('id', $growth_id)
                     ->update($request);
 
-            return view('pedia::growth.edit' . $growth_id, array( 'growth' => $growth);   
+            return view('pedia::growth.edit' . $growth_id, array( 'growth' => $growth));   
         }
 
         return view('pedia::growth.add', array());
