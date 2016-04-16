@@ -37,6 +37,7 @@ class ReportsController extends Controller {
 
     public function index()
     {
+
         $reportData = Reports::getReportData();
 
         $data['latest_patients'] = $reportData['latest_patients'];
