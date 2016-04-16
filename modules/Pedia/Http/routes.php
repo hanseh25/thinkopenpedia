@@ -9,4 +9,7 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
     Route::post('/add', 'PediaController@update');
     Route::post('/edit', 'PediaController@moved');
     Route::post('/delete', 'PediaController@delete');
+
+    Route::get('/growth', 'GrowthProgressController@browse');
+    Route::get('/growth/read/{id}', 'GrowthProgressController@read');
 });
