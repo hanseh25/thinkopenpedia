@@ -190,7 +190,7 @@ class HealthcareservicesController extends Controller {
                 $data['follow_healthcareserviceid'] = $hservice_id;
 
             }
-            return view('pedia::healthservices.add')->with($data);
+            return view('pedia::healthservice_add')->with($data);
         }
     }
 
@@ -335,7 +335,7 @@ class HealthcareservicesController extends Controller {
 
                     $data['gender'] = $patients->gender;
 
-                    return view('pedia.healthcareservices::add')->with($data);
+                    return view('pedia::healthservice_add')->with($data);
                 }
             } else {
                 //get some values from the plugin config file
@@ -401,7 +401,7 @@ class HealthcareservicesController extends Controller {
                         $data['plugindata'] = $qModel::where('healthcareservice_id', $hservice_id)->first();
 
                     }
-                    return view('pedia.healthcareservices::add')->with($data);
+                    return view('pedia::healthcareservice_add')->with($data);
                 }
             }
         } catch(\Exception $e){

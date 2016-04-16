@@ -1,10 +1,11 @@
 @extends('healthcareservices::layouts.master')
-@section('header-content') New Healthcare Record @stop
+@section('header-content') 
+  New Healthcare Record 
+@stop
 
 @section('healthcareservices-content')
   <div class="row">
     <div class="col-xs-12">
-
     <?php
     if(empty($addendum_record)) { $addendumRead = ''; }
     else { $addendumRead = 'disabled'; }
@@ -134,21 +135,23 @@
                 </ul>
                 <div class="tab-content">
                   @if (isset($tabs_child))
+
                     @foreach ($tabs_child as $key => $val)
                       <div class="tab-pane {{($default_tabs == $val) ? 'active' : ''}}" id="{{$val}}">
+
                         @if(strpos($val, '_plugin') > 0)
                           <?php 
                             View::addNamespace('pluginform', plugins_path().$plugin); 
                             echo View::make('pluginform::'.$plugin, array('data'=>$plugindata))->render();
                           ?>
                         @else
-                            @include('healthcareservices::forms.' . $val)
+                            @include('pedia::forms.' . $val)
                         @endif
                       </div><!-- /.tab-pane -->
                      @endforeach
                   @else
                      <div class="tab-pane active" id="{{$default_tabs}}">
-                        @include('pedia::healthservices.forms.' . $default_tabs)
+                        @include('pedia::forms.' . $default_tabs)
                       </div><!-- /.tab-pane -->
 
                   @endif
