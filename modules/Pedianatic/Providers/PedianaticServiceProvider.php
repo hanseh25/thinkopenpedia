@@ -24,24 +24,24 @@ class PedianaticServiceProvider extends ServiceProvider {
         $this->registerViews();
 
         // create Module table/s when required
-        $dbtable = "CREATE TABLE IF NOT EXISTS `pedianatic` (
-        `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-          `pedianatic_id` varchar(60) COLLATE utf8_unicode_ci NOT NULL ,
-          `title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-          `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-          `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-          `color` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-          `textcolor` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-          `facility_id` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-          `user_id` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
-          `deleted_at` timestamp NULL DEFAULT NULL,
-          `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-          `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-          PRIMARY KEY (id),
-          UNIQUE KEY `pedianatic_pedianatic_id_unique` (`pedianatic_id`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+        // $dbtable = "CREATE TABLE IF NOT EXISTS `pedianatic` (
+        // `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+        //   `pedianatic_id` varchar(60) COLLATE utf8_unicode_ci NOT NULL ,
+        //   `title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+        //   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+        //   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+        //   `color` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+        //   `textcolor` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+        //   `facility_id` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+        //   `user_id` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+        //   `deleted_at` timestamp NULL DEFAULT NULL,
+        //   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+        //   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+        //   PRIMARY KEY (id),
+        //   UNIQUE KEY `pedianatic_pedianatic_id_unique` (`pedianatic_id`)
+        // ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
-        DB::statement($dbtable);
+        // DB::statement($dbtable);
 
     }
 
@@ -77,7 +77,7 @@ class PedianaticServiceProvider extends ServiceProvider {
      */
     public function registerViews()
     {
-        $viewPath = base_path('views/modules/Pedianatic');
+        $viewPath = base_path('views/modules/pedianatic');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -85,7 +85,7 @@ class PedianaticServiceProvider extends ServiceProvider {
             $sourcePath => $viewPath
         ]);
 
-        $this->loadViewsFrom([$viewPath, $sourcePath], 'Pedianatic');
+        $this->loadViewsFrom([$viewPath, $sourcePath], 'pedianatic');
     }
 
     /**
@@ -95,12 +95,12 @@ class PedianaticServiceProvider extends ServiceProvider {
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/Pedianatic');
+        $langPath = base_path('resources/lang/modules/pedianatic');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'Pedianatic');
+            $this->loadTranslationsFrom($langPath, 'pedianatic');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'Pedianatic');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'pedianatic');
         }
     }
 
