@@ -141,54 +141,54 @@ class GrowthProgressController extends Controller {
                 'data' => $graphCategory,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#3c8dbc'
+                    'fillColor' => '#000000'
                 ),
-                'color' => '#3c8dbc'
+                'color' => '#000000'
             ),
             array(
                 'label' => '3RD',
                 'data' => $third,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#00c0ef'
+                    'fillColor' => '#83F5A1'
                 ),
-                'color' => '#00c0ef'
+                'color' => '#83F5A1'
             ),
             array(
                 'label' => '15TH',
                 'data' => $fifteenth,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#f39c12'
+                    'fillColor' => '#B7E949'
                 ),
-                'color' => '#f39c12'
+                'color' => '#B7E949'
             ),
             array(
                 'label' => 'MEDIAN',
                 'data' => $median,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#f56954'
+                    'fillColor' => '#F8C04E'
                 ),
-                'color' => '#f56954'
+                'color' => '#F8C04E'
             ),
             array(
                 'label' => '18TH',
                 'data' => $eighty_fifth,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#00ffe1'
+                    'fillColor' => '#FFA188'
                 ),
-                'color' => '#00ffe1'
+                'color' => '#FFA188'
             ),
             array(
                 'label' => '97TH',
                 'data' => $ninety_seventh,
                 'points' => array(
                     'symbol' => 'circle',
-                    'fillColor' => '#ffe500'
+                    'fillColor' => '#78F2BE'
                 ),
-                'color' => '#ffe500'
+                'color' => '#78F2BE'
             )
         );
     }
