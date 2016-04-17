@@ -29,6 +29,7 @@ class PediaController extends Controller {
         $facilityInfo = FacilityHelper::facilityInfo();
         $patients = getAllPatientsByFacility();
 
+        $patients = $patients->take(100);
 
         $visits = json_decode($this->HealthcareRepository->findHealthcareByFacilityID($facilityInfo->facility_id));
 
