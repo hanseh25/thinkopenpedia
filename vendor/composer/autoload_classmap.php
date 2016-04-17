@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddMenuOrder' => $baseDir . '/database/migrations/2016_02_22_202906_add_menu_order.php',
     'Command' => $vendorDir . '/mrjgreen/php-cli/Command.php',
     'CreateLovTable' => $baseDir . '/database/migrations/2015_10_09_065450_create_lov_table.php',
     'CreatePediatricTable' => $baseDir . '/database/migrations/2015_10_09_061409_create_pediatric_table.php',
@@ -520,6 +519,7 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Resources/stubs/SessionHandlerInterface.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UpdateLovModules' => $baseDir . '/database/migrations/2016_02_22_202906_update_lov_modules.php',
     'lov_address' => $baseDir . '/database/seeds/lov_address.php',
     'lov_allergy_reaction' => $baseDir . '/database/seeds/lov_allergy_reaction.php',
     'lov_diagnosis' => $baseDir . '/database/seeds/lov_diagnosis.php',
