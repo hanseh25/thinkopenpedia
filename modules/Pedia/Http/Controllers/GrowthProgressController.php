@@ -173,7 +173,7 @@ class GrowthProgressController extends Controller {
                 'color' => '#F8C04E'
             ),
             array(
-                'label' => '18TH',
+                'label' => '85TH',
                 'data' => $eighty_fifth,
                 'points' => array(
                     'symbol' => 'circle',
