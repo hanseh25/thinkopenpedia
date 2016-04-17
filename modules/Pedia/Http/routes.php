@@ -19,6 +19,15 @@ Route::group(['prefix' => 'pedia', 'namespace' => 'Modules\Pedia\Http\Controller
     Route::post('/growth/edit/{id}', 'GrowthProgressController@edit');
     Route::get('/growth/delete/{id}', 'GrowthProgressController@delete');
 
+    Route::get('/vaccine/{patient_id}', 'VaccineController@browse')
+        ->name('vaccine.browse');
+    Route::get('/vaccine/read/{id}', 'VaccineController@read')->name('pedia.vaccine.read');
+    Route::get('/vaccine/add/{patient_id}', 'VaccineController@add')->name('pedia.vaccine.add');
+    Route::get('/vaccine/edit/{id}', 'VaccineController@edit');
+    Route::post('/vaccine/add/{patient_id}', 'VaccineController@add')->name('pedia.vaccine.add');
+    Route::post('/vaccine/edit/{id}', 'VaccineController@edit');
+    Route::get('/vaccine/delete/{id}', 'VaccineController@delete');
+
 
     Route::group(['prefix' => 'healthcareservices', 'middleware' => 'auth.access:healthcareservices'], function()
     {

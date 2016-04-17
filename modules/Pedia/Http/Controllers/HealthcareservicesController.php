@@ -34,6 +34,11 @@ use Shine\Libraries\FacilityHelper;
 use Shine\Libraries\Utils;
 use Shine\Libraries\UserHelper;
 
+use Modules\Pedia\Entities\GrowthProgress; //model
+use Modules\Pedia\Entities\Pedia; //model
+use Modules\Pedia\Entities\Vaccine; //model
+use Modules\Pedia\Entities\Immune; //model
+
 use View, Form, Response, Validator, Input, Mail, Session, Redirect, Hash, Auth, DB, Datetime, Schema, Request;
 
 class HealthcareservicesController extends Controller {
@@ -111,6 +116,15 @@ class HealthcareservicesController extends Controller {
 
     public function add($patient_id = NULL, $hservice_id = null)
     {
+
+        $vaccines = Vaccine::all();
+
+        $vaccineList = array();
+        foreach ($vaccines as $vaccine) {
+            $vaccineList[$vaccine->name] = $vaccine->name;
+        }
+        $data['vaccines'] = $vaccineList;
+
         //since this is an edit function
         //we will disable editing of healthcare
         $data['disabled'] = '';
@@ -237,6 +251,7 @@ class HealthcareservicesController extends Controller {
     }
 
     public function edit($patient_id = null,  $hservice_id = null) {
+
         //since this is an edit function
         //we will disable editing of healthcare
         $data['disabled'] = '';

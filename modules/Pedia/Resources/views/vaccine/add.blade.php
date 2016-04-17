@@ -1,13 +1,21 @@
-{!! Form::open(array( 'method' => 'post', 'class' => 'form-horizontal', 'route' => 'pedia.vaccine.add' )) !!}
+@extends('pedia::layouts.master')
+
+@section('page-header')
+    <h1>
+        <small>{{ "" }}</small>
+    </h1>
+@endsection
+
+@section('content')
+    {!! Form::open(array( 'method' => 'post', 'class' => 'form-horizontal' )) !!}
     <div class="row">
         <section class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"><i class="fa fa-tag"></i> VACCINE </h3>
+                    <h3 class="box-title"><i class="fa fa-tag"></i> Vaccine </h3>
                 </div>
-    
                 <div class="box-body">
-                    {!! Form::hidden('patient_id', $patient->id) !!}
+                    {!! Form::hidden('patient_id', $patient_id) !!}
 
                     
                     <div class="form-group">
@@ -58,3 +66,4 @@
         </section>
     </div>
 {!! Form::close() !!}
+@endsection

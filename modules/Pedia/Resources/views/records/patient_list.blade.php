@@ -51,6 +51,7 @@
                                     <a href="#" type="button" class="btn btn-primary btn-flat dropdown-toggle" data-toggle="dropdown" {{ $status }}> Actions <span class="caret"></span></a>
                                     <ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
                                       <li><a href="{{ url('pedia/growth', [$patient->id]) }}">Growth Progress</a></li>
+                                      <li><a href="{{ url('pedia/vaccine', [$patient->id]) }}">Vaccine</a></li>
                                       <li><a href="{{ url('pedia/healthcareservices/add', [$patient->patient_id]) }}">Add Healthcare Visit</a></li>
                                       <li role="separator" class="divider"></li>
                                       <li><a href="#" data-toggle="modal" data-target="#deathModal" class="red">Declare Dead</a></li>
